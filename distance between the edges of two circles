@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <math.h>
+
+
+struct Circle {
+    float radius;
+    float x_position;
+    float y_position;
+};
+
+
+float distance_between(struct Circle c1, struct Circle c2) {
+    float distance_centers = sqrt(pow(c1.x_position - c2.x_position, 2) + pow(c1.y_position - c2.y_position, 2));
+    return distance_centers - (c1.radius + c2.radius);
+}
+
+int main(void) {
+    struct Circle c1;
+    struct Circle c2;
+
+    float r1 = 0;
+    float r2 = 0;
+    scanf("%f", &r1);
+    scanf("%f", &r2);
+    c1.radius = r1;
+    c2.radius = r2;
+    c1.x_position = 11;
+    c1.y_position = 22;
+    c2.x_position = 4;
+    c2.y_position = 6;
+
+    float distance = distance_between(c1, c2);
+    printf("distance between two circle is %f.\n", distance);
+
+    return 0;
+}
