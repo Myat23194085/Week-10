@@ -1,0 +1,83 @@
+#include <stdio.h>
+
+// Define the structure type named Vector3
+struct Vector3 {
+    float x;
+    float y;
+    float z;
+};
+
+// Function prototypes
+struct Vector3 add(struct Vector3 a, struct Vector3 b);
+struct Vector3 subtract(struct Vector3 a, struct Vector3 b);
+float dot_product(struct Vector3 a, struct Vector3 b);
+void print_vector3(struct Vector3 to_print);
+
+int main(void) {
+    struct Vector3 v1, v2;
+
+    // Get two vectors input from the user
+    printf("First Vector x: ");
+    scanf("%f", &v1.x);
+    printf("First Vector y: ");
+    scanf("%f", &v1.y);
+    printf("First Vector z: ");
+    scanf("%f", &v1.z);
+
+    printf("\n");
+    printf("Second Vector x: ");
+    scanf("%f", &v2.x);
+    printf("Second Vector y: ");
+    scanf("%f", &v2.y);
+    printf("Second Vector z: ");
+    scanf("%f", &v2.z);
+
+    // Compute vector addition
+    struct Vector3 addition = add(v1, v2);
+
+    // Compute vector subtraction
+    struct Vector3 subtraction = subtract(v1, v2);
+
+    // Compute vector dot product
+    float dot = dot_product(v1, v2);
+
+    // Print results
+    printf("Addition: ");
+    print_vector3(addition);
+    printf("Subtraction: ");
+    print_vector3(subtraction);
+    printf("Dot Product: %.2f\n", dot);
+
+    return 0;
+}
+
+// Function to add two vectors
+struct Vector3 add(struct Vector3 a, struct Vector3 b) {
+    struct Vector3 result;
+    result.x = a.x + b.x;
+    result.y = a.y + b.y;
+    result.z = a.z + b.z;
+    return result;
+}
+
+// Function to subtract two vectors
+struct Vector3 subtract(struct Vector3 a, struct Vector3 b) {
+    struct Vector3 result;
+    result.x = a.x - b.x;
+    result.y = a.y - b.y;
+    result.z = a.z - b.z;
+    return result;
+}
+
+// Function to compute the dot product of two vectors
+float dot_product(struct Vector3 a, struct Vector3 b) {
+    return (a.x * b.x) + (a.y * b.y) + (a.z * b.z);
+}
+
+// Function to print a vector
+void print_vector3(struct Vector3 to_print) {
+    printf("(%.2f, %.2f, %.2f)\n", to_print.x, to_print.y, to_print.z);
+}
+
+
+
