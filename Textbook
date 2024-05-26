@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+struct Textbook
+{
+    char title[21];
+    int page_number;
+    int chapter_number;
+    float weight;
+    int publication_year;
+};
+
+void print_textbook(struct Textbook a_soft_drink);
+
+int main(void)
+{
+    struct Textbook prog_java;
+
+	sprintf(prog_java.title, "How to program Java");
+	prog_java.page_number = 1350;
+	prog_java.chapter_number = 12;
+	prog_java.weight = 790.52f;
+	prog_java.publication_year = 2008;
+
+	print_textbook(prog_java);
+
+	return 0;
+}
+
+void print_textbook(struct Textbook a_soft_drink)
+{
+    printf("A textbook...\n");
+    printf("\n");
+    printf("Title: %s\n",a_soft_drink.title);
+    printf("Number of pages: %d pages\n",a_soft_drink.page_number);
+    printf("Number of chapters: %d chapters\n",a_soft_drink.chapter_number);
+    printf("Weight: %.2f g\n",a_soft_drink.weight);
+    printf("Year of publication: %d\n",a_soft_drink.publication_year);
+}
