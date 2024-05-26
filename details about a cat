@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+struct Cat
+{
+    char name[21];
+    int age;
+    float weight;
+    float tail_length;
+};
+ 
+void print_cat(struct Cat a_cat);
+
+int main(void)
+{
+    struct Cat whiskers;
+
+	sprintf(whiskers.name, "Whiskers");
+	whiskers.age = 126;
+	whiskers.weight = 8;
+	whiskers.tail_length = 15;
+
+	print_cat(whiskers);
+
+	return 0;
+}
+
+void print_cat(struct Cat a_cat)
+{
+    printf("Name:        %s\n", a_cat.name);
+    printf("Age:         %d\n", a_cat.age);
+    printf("Weight:      %.2f\n", a_cat.weight);
+    printf("Tail Length: %.2f\n", a_cat.tail_length);
+}
