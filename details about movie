@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+struct Movie
+{
+    char title[21];
+    int minutes;
+    float tomatometer;
+};
+
+void print_movie(struct Movie a_movie){
+    printf("Movie title:        %s\n", a_movie.title);
+    printf("Runtime in minutes: %d\n", a_movie.minutes);
+    printf("Tomatometer Score:  %.2f\n", a_movie.tomatometer);
+}
+
+int main(){
+    struct Movie movie;
+    sprintf(movie.title, "Batman Returns");
+    movie.minutes = 126;
+    movie.tomatometer = 0.81f;
+    
+    print_movie(movie);
+}
