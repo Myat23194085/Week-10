@@ -1,0 +1,72 @@
+#include <stdio.h>
+
+enum Animal
+{
+Antelope,
+Bat,
+Cat,
+Dog,
+Dolphin,
+Duck,
+Horse,
+Mouse,
+Owl,
+Snake,
+};
+
+void make_animal_noise(enum Animal animal);
+
+int main(void)
+{
+	enum Animal animal;
+	animal = Antelope ;
+	make_animal_noise(animal);
+	
+	enum Animal animal1;
+	animal1 = Dog ;
+	make_animal_noise(animal1);
+	
+	enum Animal animal2;
+	animal2 = Owl ;
+	make_animal_noise(animal2);
+	
+
+	return 0;
+}
+
+void make_animal_noise(enum Animal animal)
+{
+  switch (animal){
+      case Antelope:
+      printf("Antelope noise: Snort\n");
+      break;
+      case Bat:
+      printf("Bat noise: Screech\n");
+      break;
+      case Cat:
+      printf("Cat noise: Meow\n");
+      break;
+      case Dog:
+      printf("Dog noise: Woof\n");
+      break;
+      case Dolphin:
+      printf("Dolphin noise: Click\n");
+      break;
+      case Duck:
+      printf("Duck noise: Quack\n");
+      break;
+      case Horse:
+      printf("Horse noise: Neigh\n");
+      break;
+      case Mouse:
+      printf("Mouse noise: Squeak\n");
+      break;
+      case Owl:
+      printf("Owl noise: Hoot\n");
+      break;
+      case Snake:
+      printf("Snake noise: Hiss\n");
+      break;
+  }
+
+}
