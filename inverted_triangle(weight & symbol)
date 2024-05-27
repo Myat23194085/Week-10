@@ -1,0 +1,39 @@
+#include <stdio.h>
+struct Triangle
+{
+    char inner_symbol;
+    int height;
+};
+
+void print_inverted(struct Triangle inverted_triangle);
+
+int main(void)
+{
+    struct Triangle triangle;
+	printf("Inverted triangle's height? \n");
+	scanf("%d", &triangle.height);
+	printf("Inverted triangle's symbol? \n");
+	scanf(" %c", &triangle.inner_symbol);
+
+	print_inverted(triangle);
+    return 0;
+}
+void print_inverted(struct Triangle inverted_triangle)
+{
+    
+    for(int i=0; i< inverted_triangle.height*2; i++){
+        printf("_");
+    }
+    printf("\n");
+    
+    for(int i=inverted_triangle.height; i >= 1; i--){
+        for(int j=0; j< inverted_triangle.height - i; j++){
+        printf(" ");
+    }
+    printf("\\");
+    for(int k =0; k<(i-1)*2;k++){
+        printf("%c",inverted_triangle.inner_symbol);
+    }
+    printf("/\n");
+    }
+}
