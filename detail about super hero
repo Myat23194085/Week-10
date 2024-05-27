@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+struct Super_Hero
+{
+    char name[21];
+    int year;
+    float tomatometer;
+};
+
+void print_super_hero(struct Super_Hero a_super_hero);
+
+int main(void)
+{
+    struct Super_Hero hero;
+
+	sprintf(hero.name, "Batman");
+	hero.year = 1938;
+	hero.tomatometer = 0.27f;
+
+	print_super_hero(hero);
+	
+	return 0;
+}
+
+void print_super_hero(struct Super_Hero a_super_hero)
+{
+    printf("Super hero name: %s\n", a_super_hero.name);
+    printf("Year created: %d\n", a_super_hero.year);
+    printf("Latest Tomatometer: %.2f\n", a_super_hero.tomatometer);
+
+}
