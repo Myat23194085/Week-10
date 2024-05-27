@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <string.h>
+
+struct Product
+{
+    char name[50];
+    char brand[50];
+    float price;
+    int quantity;
+};
+
+void print_product(struct Product a_product);
+    
+
+
+int main(void)
+{
+    struct Product input[3] = {
+        {"Xbox One S","Microsoft",395.50,35},
+        {"PlayStation 4 Pro","Sony",538.00,71},
+        {"Switch","Nintendo",529.95,8},
+    };
+    for(int i =0; i<3;i++){
+        print_product(input[i]);
+    }
+	return 0;
+}
+
+void print_product(struct Product a_product)
+{
+	printf("Item name: %s\n", a_product.name);
+	printf("Brand:     %s\n", a_product.brand);
+	printf("Price:     $%.2f\n", a_product.price);
+	printf("Quantity:  %d\n\n", a_product.quantity);
+}
