@@ -1,0 +1,44 @@
+#include <stdio.h>
+enum Quadratic_Solution {
+    TWO_COMPLEX, ONE_REAL, TWO_REAL
+};
+enum Quadratic_Solution get_solution_type(float a, float b, float c){
+    float discrimination =  b*b - 4*a*c;
+    if(discrimination > 0){
+        return TWO_REAL;
+    }else if(discrimination == 0){
+        return ONE_REAL;
+    }else{
+        return TWO_COMPLEX;
+    }
+}
+void print_solution_type(enum Quadratic_Solution qs){
+    switch(qs){
+        case TWO_REAL:
+        printf("Two real solutions.");
+        break;
+        case ONE_REAL:
+        printf("One real solution.\n");
+        break;
+        case TWO_COMPLEX:
+        printf("Two complex solutions.\n");
+        break;
+    }
+}
+int main(void) {
+  float a_coefficent;
+  float b_coefficent;
+  float c_constant;
+  printf("y = ax^2 + bx + c\n");
+  printf("a? \n");
+  scanf("%f", & a_coefficent);
+  printf("b? \n");
+  scanf("%f", & b_coefficent);
+  printf("c? \n");
+  scanf("%f", & c_constant);
+  enum Quadratic_Solution result = get_solution_type(a_coefficent,
+    b_coefficent,
+    c_constant);
+  print_solution_type(result);
+  return 0;
+}
