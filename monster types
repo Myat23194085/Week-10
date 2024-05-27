@@ -1,0 +1,100 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+enum Monster_Type {
+    CHANGELING, MUMMY, WEREWOLF, VAMPIRE, ZOMBIE
+};
+
+struct Monster {
+    enum Monster_Type type;
+    int age;
+    int power;
+    float speed;
+    int stamina;
+};
+
+struct Monster create_monster(enum Monster_Type type);
+void print_monster(struct Monster monster);
+const char* get_monster_type_name(enum Monster_Type type);
+
+int main(void) {
+    srand(time(0)); // Initialize random number generator
+
+    struct Monster monster1 = create_monster(CHANGELING);
+    print_monster(monster1);
+
+    struct Monster monster2 = create_monster(MUMMY);
+    print_monster(monster2);
+
+    struct Monster monster3 = create_monster(WEREWOLF);
+    print_monster(monster3);
+
+    struct Monster monster4 = create_monster(VAMPIRE);
+    print_monster(monster4);
+
+    struct Monster monster5 = create_monster(ZOMBIE);
+    print_monster(monster5);
+
+    return 0;
+}
+
+struct Monster create_monster(enum Monster_Type type) {
+    struct Monster monster;
+    monster.type = type;
+
+    switch (type) {
+        case CHANGELING:
+            monster.age = 21;
+            monster.power = 86;
+            monster.speed = 6.77;
+            monster.stamina = 4057;
+            break;
+        case MUMMY:
+            monster.age = 3793;
+            monster.power = 97;
+            monster.speed = 0.37;
+            monster.stamina = 492;
+            break;
+        case WEREWOLF:
+            monster.age = 70;
+            monster.power = 144;
+            monster.speed = 20.53;
+            monster.stamina = 4628;
+            break;
+        case VAMPIRE:
+            monster.age = 89;
+            monster.power = 260;
+            monster.speed = 10.08;
+            monster.stamina = 3926;
+            break;
+        case ZOMBIE:
+            monster.age = -1;
+            monster.power = 1;
+            monster.speed = 0.30;
+            monster.stamina = 173;
+            break;
+    }
+
+    return monster;
+}
+
+const char* get_monster_type_name(enum Monster_Type type) {
+    switch (type) {
+        case ZOMBIE: return "Zombie";
+        case WEREWOLF: return "Werewolf";
+        case VAMPIRE: return "Vampire";
+        case MUMMY: return "Mummy";
+        case CHANGELING: return "Changeling";
+        default: return "Unknown";
+    }
+}
+
+void print_monster(struct Monster monster) {
+    printf("Monster Type: %s\n", get_monster_type_name(monster.type));
+    printf("         Age: %d years\n", monster.age);
+    printf("       Power: %d\n", monster.power);
+    printf("       Speed: %.2f\n", monster.speed);
+    printf("     Stamina: %d\n", monster.stamina);
+
+}
